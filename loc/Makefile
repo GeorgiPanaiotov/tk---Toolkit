@@ -17,4 +17,4 @@ build_o:
 	$(CC) -o $(BUILD_DIR)proj.o -c $(CFLAGS) proj/proj.c
 
 clean:
-	rm -f ./loc
+	rm ./loc

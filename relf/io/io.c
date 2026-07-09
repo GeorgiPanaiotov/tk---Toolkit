@@ -1,23 +1,23 @@
 #include "io.h"
 
-int load_file(const char *path, int flags, int modes)
+int r_load_file(const char *path, int flags, int modes)
 {
   int fd = open(path, flags, modes);
   if (fd == -1)
   {
-    perror("load_file: open");
+    perror("r_load_file: open");
     exit(EXIT_FAILURE);
   }
 
   return fd;
 }
 
-off_t get_file_size(int *fd)
+off_t r_get_file_size(int *fd)
 {
   off_t file_size = lseek(*fd, 0, SEEK_END);
   if (file_size == -1)
   {
-    perror("get_file_size: lseek");
+    perror("r_get_file_size: lseek");
     close_fd(fd);
     exit(EXIT_FAILURE);
   }
@@ -54,7 +54,7 @@ char *read_file(int *fd)
 {
   ssize_t read_buffer;
   ssize_t read_buffer_total = 0;
-  off_t file_size = get_file_size(fd);
+  off_t file_size = r_get_file_size(fd);
   char *buffer = malloc(file_size + 1);
   buffer[file_size] = '\0';
 
