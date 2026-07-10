@@ -4,9 +4,16 @@
 #include <time.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <string.h>
 
 int tm_main(int argc, char *argv[])
 {
+  if (argc < 2 || strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0)
+  {
+    printf("Usage: %s <program_name> [args...]\n", argv[0]);
+    return 0;
+  }
+
   if (argc < 3)
   {
     printf("Please provide a tool to measure!\n");
