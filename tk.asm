@@ -4,6 +4,7 @@ format ELF64
 	extrn   mu_main
 	extrn   relf_main
 	extrn   tm_main
+	extrn		psm_main
 
 public main
 
@@ -74,6 +75,11 @@ main:
 	pop     rdi
 	pop     rsi
 
+	comp    str_psm, psm_len
+	je      .run_psm
+	pop     rdi
+	pop     rsi
+
 	comp    str_help, help_len
 	je      .help
 
@@ -115,6 +121,13 @@ main:
 	add     rsp, 8
 	exit    0
 
+.run_psm:
+	prepreg 8
+	call    psm_main
+
+	add     rsp, 8
+	exit    0
+
 section '.data'
 str_loc         db      "loc", 0
 loc_len =				$ - str_loc
@@ -128,6 +141,9 @@ relf_len = 			$ - str_relf
 str_tm          db      "tm", 0
 tm_len = 				$ - str_tm
 
+str_psm         db      "psm", 0
+psm_len =				$ - str_psm
+
 str_help        db      "--help", 0
 help_len = 			$ - str_help
 
@@ -139,6 +155,7 @@ help_msg        db      "Programs: ", 10
 								db      " mu - Disk Memory Usage", 10
 								db      " relf - Read Elf", 10
 								db      " tm - Time", 10
+								db 			" psm - Process Sandbox Manager", 10
 help_msg_len = 	$ - help_msg
 
 section '.note.GNU-stack'

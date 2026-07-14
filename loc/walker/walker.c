@@ -1,7 +1,7 @@
 #include "walker.h"
 
 static const char *ext_skip[] = {
-    "png", "jpeg", "jpg", "dll", "o", "so", "exe", "min.js", "log", "zip", "gz", "tar"};
+    "png", "jpeg", "jpg", "dll", "o", "so", "exe", "min.js", "log", "zip", "gz", "tar", "map"};
 
 void loc_walk(Project *proj, char *path, int flags, int modes)
 {
