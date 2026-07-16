@@ -3,9 +3,9 @@
 
 int loc_main(int argc, char *argv[])
 {
-  if (argc < 2)
+  if (argc < 2 || strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0)
   {
-    printf("Insufficient arguments!\n");
+    printf("Usage: %s <target_directory | target_file>\n", argv[0]);
     exit(EXIT_FAILURE);
   }
 
@@ -31,8 +31,8 @@ int loc_main(int argc, char *argv[])
   printf("Code lines: %'ld\n", project.total_stats.code_count);
   printf("Comment lines: %'ld\n\n", project.total_stats.comment_count);
 
-  printf("\n%-20s %15s\n", "Language", "Lines of Code");
-  printf("------------------------------------\n");
+  printf("\n%-20s %15s %18s\n", "Language", "Lines of Code", "Number of Files");
+  printf("-------------------------------------------------------\n");
 
   for (size_t i = 0; i < project.language_count; i++)
   {
@@ -41,9 +41,9 @@ int loc_main(int argc, char *argv[])
       continue;
     }
 
-    printf("%-20s %'15lld\n", project.language_stats[i].language, project.language_stats[i].stats.total);
+    printf("%-20s %'15lld %18ld\n", project.language_stats[i].language, project.language_stats[i].stats.total, project.language_stats[i].count);
   }
-  printf("------------------------------------\n");
+  printf("-------------------------------------------------------\n");
 
   for (size_t i = 0; i < project.file_count; i++)
   {

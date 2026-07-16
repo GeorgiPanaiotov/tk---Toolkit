@@ -23,6 +23,7 @@ typedef struct LanguageStat
 {
   char *language;
   struct Metrics stats;
+  long count;
 } LanguageStat;
 
 typedef struct Project
@@ -56,6 +57,7 @@ static const LanguageMap language_map[] = {
     {"html", "HTML"},
     {"css", "CSS"},
     {"sh", "Shell Script"},
+    {"hs", "Haskell"},
     {"ml", "OCaml"},
     {"fs", "F#"},
     {"md", "Markdown"},
@@ -74,6 +76,9 @@ static const LanguageMap language_map[] = {
     {"scss", "SCSS"},
     {"php", "PHP"},
     {"svg", "SVG"},
+    {"config", "Configuration File"},
+    {"Dockerfile", "Docker File"},
+    {"csproj", "C# Project File"}
 };
 
 #define FILE_CAPACITY 256

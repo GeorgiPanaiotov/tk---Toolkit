@@ -21,3 +21,6 @@ build_and_link:
 	cd psm && make build_o
 	$(ASSEMBLER) $(ASM_SOURCES) $(BUILD_DIR)tkit.o
 	$(CC) $(OBJ_FILES) -o $(BUILD_DIR)tk
+
+clean:
+	rm $(OBJ_FILES) $(BUILD_DIR)tk

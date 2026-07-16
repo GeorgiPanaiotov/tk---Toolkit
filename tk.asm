@@ -128,6 +128,7 @@ main:
 	add     rsp, 8
 	exit    0
 
+
 section '.data'
 str_loc         db      "loc", 0
 loc_len =				$ - str_loc
@@ -150,7 +151,8 @@ help_len = 			$ - str_help
 error_msg       db      "Not enough arguments were provided! See --help for usage", 10
 error_msg_len = $ - error_msg
 
-help_msg        db      "Programs: ", 10
+help_msg				db			"Usage: tk <program_name> [args...]", 10
+        				db      "Programs: ", 10
 								db      " loc - Lines Of Code", 10
 								db      " mu - Disk Memory Usage", 10
 								db      " relf - Read Elf", 10

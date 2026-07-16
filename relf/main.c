@@ -3,11 +3,12 @@
 
 int relf_main(int argc, char *argv[])
 {
-  if (argc < 2)
+  if (argc < 2 || strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "-h") == 0)
   {
-    printf("Insufficient Arguments!\n");
+    printf("Usage: %s <target_file>\n", argv[0]);
     exit(EXIT_FAILURE);
   }
+  
   int fd = r_load_file(argv[1], O_RDONLY, S_IRUSR | S_IRGRP | S_IROTH);
   char *buffer = read_file(&fd);
   close_fd(&fd);
