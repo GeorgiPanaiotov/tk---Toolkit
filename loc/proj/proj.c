@@ -38,10 +38,7 @@ void calculate_language_stats(Project *proj)
     {
       if (strcmp(proj->language_stats[j].language, language) == 0)
       {
-        if (strcmp(proj->language_stats[j].language, language) == 0)
-        {
-          proj->language_stats[j].count++;
-        }
+        proj->language_stats[j].count++;
         index = j;
         break;
       }
@@ -51,6 +48,7 @@ void calculate_language_stats(Project *proj)
     {
       index = proj->language_count;
       proj->language_stats[index].language = language;
+      proj->language_stats[index].count++;
       proj->language_count++;
     }
 
