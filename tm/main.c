@@ -17,12 +17,6 @@ int tm_main(int argc, char *argv[])
     exit(EXIT_FAILURE);
   }
 
-  if (argc < 3)
-  {
-    printf("Please provide a tool to measure!\n");
-    exit(EXIT_FAILURE);
-  }
-
   char *cmd_app = argv[1];
   char **new_argv = argv + 1;
 
