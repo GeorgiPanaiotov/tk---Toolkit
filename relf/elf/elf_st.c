@@ -73,24 +73,10 @@ void print_ident_version(const char *field)
   printf("\n");
 }
 
-void print_osabi(unsigned char ident[], const char *field, IdentOffset ident_offset)
-{
-  printf("%-30s ", field);
-  printf("%s ", get_osabi(ident[ident_offset]));
-  printf("\n");
-}
-
 void print_abiversion(unsigned char ident[], const char *field, IdentOffset ident_offset)
 {
   printf("%-30s ", field);
   printf("%x ", ident[ident_offset]);
-  printf("\n");
-}
-
-void print_object_type(const char *field, uint16_t type)
-{
-  printf("%-30s ", field);
-  printf("%s ", get_obj_type(type));
   printf("\n");
 }
 
@@ -113,70 +99,6 @@ void print_entry(const char *field, uint64_t address)
   printf("%-30s ", field);
   printf("0x%08lx ", address);
   printf("\n");
-}
-
-char *get_osabi(unsigned char c)
-{
-  switch (c)
-  {
-  case SYSTEM_V:
-    return "System V";
-  case HP_UX:
-    return "Hewlett Packard Unix";
-  case NETBSD:
-    return "NET BSD";
-  case LINUX:
-    return "Linux";
-  case GNU_HURD:
-    return "GNU Hurd";
-  case SOLARIS:
-    return "Solaris";
-  case AIX:
-    return "Advanced Interactive eXecutive";
-  case IRIX:
-    return "IRIX";
-  case FREEBSD:
-    return "Free BSD";
-  case TRU64:
-    return "Tru64";
-  case NOVELL_MODESTO:
-    return "Novell Modesto";
-  case OPENBSD:
-    return "Open BSD";
-  case OPENVMS:
-    return "Open VMS";
-  case NONSTOP_KERNEL:
-    return "NonStop Kernel";
-  case AROS:
-    return "AROS";
-  case FENIX_OS:
-    return "Fenix OS";
-  case NUXI:
-    return "NUXI";
-  case OPEN_VOS:
-    return "Open VOS";
-  default:
-    return "Unknown";
-  }
-}
-
-char *get_obj_type(uint16_t type)
-{
-  switch (type)
-  {
-  case ET_NONE:
-    return "Unknown";
-  case ET_REL:
-    return "REL Relocatable File";
-  case ET_EXEC:
-    return "EXEC Executable File";
-  case ET_DYN:
-    return "DYN Shared Object";
-  case ET_CORE:
-    return "CORE Core File";
-  default:
-    return "Unknown";
-  }
 }
 
 char *get_machine_type(uint16_t machine)

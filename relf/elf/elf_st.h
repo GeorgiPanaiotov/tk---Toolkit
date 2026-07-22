@@ -22,28 +22,6 @@ typedef enum
 
 typedef enum
 {
-  SYSTEM_V = 0x00,
-  HP_UX = 0x01,
-  NETBSD = 0x02,
-  LINUX = 0x03,
-  GNU_HURD = 0x04,
-  SOLARIS = 0x06,
-  AIX = 0x07,
-  IRIX = 0x08,
-  FREEBSD = 0x09,
-  TRU64 = 0x0A,
-  NOVELL_MODESTO = 0x0B,
-  OPENBSD = 0x0C,
-  OPENVMS = 0x0D,
-  NONSTOP_KERNEL = 0x0E,
-  AROS = 0x0F,
-  FENIX_OS = 0x10,
-  NUXI = 0x11,
-  OPEN_VOS = 0x12
-} OSABI;
-
-typedef enum
-{
   IDENT = 0x00,
   TYPE = 0x10,
   MACHINE = 0x12,
@@ -92,15 +70,6 @@ typedef enum
   EI_ABIVERSION = 0x08,
   EI_PAD = 0x09
 } IdentOffset;
-
-typedef enum
-{
-  ET_NONE = 0x00,
-  ET_REL = 0x01,
-  ET_EXEC = 0x02,
-  ET_DYN = 0x03,
-  ET_CORE = 0x04,
-} ObjectType;
 
 typedef enum
 {
@@ -185,14 +154,10 @@ void print_magic(unsigned char ident[], size_t start, size_t end, const char *fi
 void print_class(unsigned char ident[], const char *field, IdentOffset ident_offset);
 void print_data(unsigned char ident[], const char *field, IdentOffset ident_offset);
 void print_ident_version(const char *field);
-void print_osabi(unsigned char ident[], const char *field, IdentOffset ident_offset);
 void print_abiversion(unsigned char ident[], const char *field, IdentOffset ident_offset);
-void print_object_type(const char *field, uint16_t type);
 void print_machine(const char *field, uint16_t type);
 void print_version(const char *field, uint32_t version);
 void print_entry(const char *field, uint64_t address);
-char *get_osabi(unsigned char c);
-char *get_obj_type(uint16_t type);
 char *get_machine_type(uint16_t machine);
 
 #endif
