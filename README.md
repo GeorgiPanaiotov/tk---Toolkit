@@ -6,5 +6,10 @@ Assembly wrapper for some developer tools. Each tool can be built as its own sta
 
 `tk loc .` can be used as an example usage. **tk** is obviously the wrapper call, **loc** is the app to be called, **.** is the input - in this case its the current directory.
 
-Each app can be built independently by navigating to its directory and executing `make build_standalone`.
-Not every app is in perfect working condition right now, so please if you want to add support for it, make sure the app really does work.
+
+## Needed Packages
+`ghc` is a must due to added Haskell support
+`gcc`
+`fasm`
+
+The repo includes already built files for the sake of simplicity
