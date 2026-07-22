@@ -1,1 +1,4 @@
 *.hs linguist-language=Haskell
+*.go linguist-language=Go
+*.asm linguist-language=Assembly
+*.c linguist-language=C
