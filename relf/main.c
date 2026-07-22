@@ -28,9 +28,10 @@ int relf_main(int argc, char *argv[])
   print_data(elf_header.identity, "DATA", EI_DATA);
   print_ident_version("VERSION");
   // print_osabi(elf_header.identity, "OS/ABI", EI_OSABI);
-  hs_fmt_osabi((unsigned char *)elf_header.identity, file_size);
+  hs_fmt_osabi((unsigned char *)buffer, file_size);
   print_abiversion(elf_header.identity, "ABI VERSION", EI_ABIVERSION);
-  print_object_type("TYPE", elf_header.type);
+  hs_fmt_type((unsigned char *)buffer, file_size);
+  // print_object_type("TYPE", elf_header.type);
   print_machine("MACHINE", elf_header.machine);
   print_version("VERSION", elf_header.version);
   print_entry("ENTRY ADDRESS", elf_header.entry);

@@ -4,6 +4,7 @@ ASM_SOURCES = tk.asm
 BUILD_DIR = build/
 
 GHC_LIB_PATH = /usr/lib/ghc/lib/x86_64-linux-ghc-9.4.7
+GHC_LIBS = -l:libHSrts-1.0.2-ghc9.4.7.so -l:libHSbase-4.17.2.0-ghc9.4.7.so -l:libHSghc-bignum-1.3-ghc9.4.7.so -l:libHSghc-prim-0.9.1-ghc9.4.7.so -lgmp -lm
 
 MU_OFILES = $(BUILD_DIR)mu.o $(BUILD_DIR)collector.o $(BUILD_DIR)proj_stat.o
 LOC_OFILES = $(BUILD_DIR)loc.o $(BUILD_DIR)proj.o $(BUILD_DIR)walker.o
@@ -26,12 +27,7 @@ build_and_link:
     $(OBJ_FILES) \
     $(BUILD_DIR)libhs.so \
     -L$(GHC_LIB_PATH) \
-    -l:libHSrts-1.0.2-ghc9.4.7.so \
-    -l:libHSbase-4.17.2.0-ghc9.4.7.so \
-    -l:libHSghc-bignum-1.3-ghc9.4.7.so \
-    -l:libHSghc-prim-0.9.1-ghc9.4.7.so \
-    -lgmp \
-    -lm \
+		$(GHC_LIBS) \
     -Wl,-rpath,'$$ORIGIN/' \
     -Wl,-rpath,$(GHC_LIB_PATH) \
 		-no-pie \
