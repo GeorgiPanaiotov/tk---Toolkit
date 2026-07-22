@@ -9,7 +9,7 @@ Assembly wrapper for some developer tools. Each tool can be built as its own sta
 
 ## Needed Packages
 `ghc` is a must due to added Haskell support  
-`gcc`  
-`fasm`  
+`gcc` for obvious reasons  
+`fasm` to compile the final executable  
   
 The repo includes already built files for the sake of simplicity
