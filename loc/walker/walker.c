@@ -234,5 +234,5 @@ void parse_char(File *file, char c)
 
 bool loc_skip_dir(char *directory)
 {
-  return strcmp(directory, ".") == 0 || strcmp(directory, "..") == 0 || strcmp(directory, "build") == 0 || strcmp(directory, "node_modules") == 0;
+  return strcmp(directory, ".") == 0 || strcmp(directory, "..") == 0 || strcmp(directory, "build") == 0 || strcmp(directory, "node_modules") == 0 || strcmp(directory, "obj") == 0 || strcmp(directory, "bin") == 0;
 }

@@ -23,13 +23,16 @@ int loc_main(int argc, char *argv[])
   get_code_total(&project);
   calculate_language_stats(&project);
 
+  printf("\e[1m");
   printf("Total files checked: %'ld\n", project.file_count);
   printf("Total files skipped: %'ld\n\n", project.files_skipped);
 
-  printf("Total lines of code: %'lld\n", project.total_stats.total);
-  printf("Blank lines: %'ld\n", project.total_stats.blank_count);
+  printf("Total lines of code: %'lld\n\n", project.total_stats.total);
   printf("Code lines: %'ld\n", project.total_stats.code_count);
-  printf("Comment lines: %'ld\n\n", project.total_stats.comment_count);
+  printf("Comment lines: %'ld\n", project.total_stats.comment_count);
+  printf("Blank lines: %'ld\n\n", project.total_stats.blank_count);
+
+  printf("\e[0m");
 
   printf("\n%-20s %15s %18s\n", "Language", "Lines of Code", "Number of Files");
   printf("-------------------------------------------------------\n");
