@@ -6,6 +6,9 @@ Assembly wrapper for some developer tools. Each tool can be built as its own sta
 
 `tk loc .` can be used as an example usage. **tk** is obviously the wrapper call, **loc** is the app to be called, **.** is the input - in this case its the current directory.
 
+## Warning:
+This project might not fit your use case and most certainly will not work on Windows unless started from within `wsl`. It uses POSIX compliant syscalls, but there still might be undefined behavior on UNIX based systems.  
+It was tested solely on Linux machines
 
 ## Needed Packages
 `ghc` is a must due to added Haskell support  
